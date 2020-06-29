@@ -1,0 +1,17 @@
+<mat-card class="card">
+    <mat-card-header class="header">
+        <mat-card-title>REQ-00{{banner_req.id}}</mat-card-title>
+        <mat-card-subtitle>{{banner_req.name}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <p><b>Description:</b> {{banner_req.description}}</p>
+        <p><b>Status:</b> {{banner_req.status}}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-raised-button color="warn" *ngIf="banner_req.status=='PENDING'" (click)="changeStatus(banner_req, 'ACCEPT')">ACCEPT</button>
+        <button mat-raised-button color="accent" *ngIf="banner_req.status=='ACCEPT'" (click)="changeStatus(banner_req, 'INPROGRESS')">INPROGRESS</button>
+        <button mat-raised-button color="primary" *ngIf="banner_req.status=='INPROGRESS'" (click)="changeStatus(banner_req, 'COMPLETE')">COMPLETE</button>
+    </mat-card-actions>
+</mat-card>
